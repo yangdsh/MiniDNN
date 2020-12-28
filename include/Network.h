@@ -304,7 +304,8 @@ class Network
 
             for (int i = 0; i < nlayer; i++)
             {
-                m_layers[i]->init(mu, sigma, m_rng);
+                // m_layers[i]->init(mu, sigma, m_rng);
+                m_layers[i]->init(mu, 2.0/m_layers[i]->in_size(), m_rng);
             }
         }
 
@@ -449,7 +450,7 @@ class Network
             }
 
             // Reset optimizer
-            opt.reset();
+            // opt.reset();
 
             // Create shuffled mini-batches
             if (seed > 0)
